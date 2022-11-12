@@ -8,12 +8,13 @@ const userTwo = {
     firstname: 'Саша',
 }
 
-function checkAccess(user, role) {
-    if (user.role === role){
-        return true;
-    } 
-    return false;
-    //return user.role === role; может быть много сложной логики
+function getDefaultRole() {
+    //тут какие-то сложные асинхронные действия.
+    return 'admin'
+}
+
+function checkAccess(user, role = getDefaultRole()) {
+    return user.role === role; //может быть много сложной логики
 }
 
 function showSuccessMessage (user) {
@@ -44,3 +45,12 @@ function checkAccessAndShowMessage(user, role) {
 
 checkAccessAndShowMessage(userOne, 'admin')
 checkAccessAndShowMessage(userTwo, 'manager')
+
+const repeatString = (text, repeatCount) => {
+    for (let i0; i = 0; i < repeatCount; i++) {
+        console.log();
+    }
+}
+
+repeatString('Привет')
+
