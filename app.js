@@ -1,19 +1,22 @@
-//задание про машины
-
-const startCarCount = 1000;
-const minCarCount = 10;
-let day = 0;
-let currentCarCount = startCarCount;
-
-// while (currentCarCount > minCarCount) {
-//   currentCarCount = Math.round(currentCarCount / 2);
-//    day++;
-//}
-
-for (let day = 1; minCarCount < currentCarCount; day++)
-    currentCarCount = currentCarCount /2;
-    dayMinCarCount = day //нужно задать через let dayMinCarCount = null
+const userOne = {
+    role: 'admin',
+    firstname: 'Настя',
 }
 
-console.log(`Через ${day} .....`);
+function checkAccess(user, role) {
+    if (user.role === role){
+        return true;
+    } 
+    return false;
+    //return user.role === role; может быть много сложной логики
+}
 
+function showSuccessMessage (user) {
+    console.log('################');
+    console.log(`# Доступ открыт ${user.firstname} #`);
+    console.log('################');
+}
+
+if (checkAccess(userOne, 'admin')) {
+    showSuccessMessage (userOne);
+}
